@@ -19,11 +19,12 @@ Route::get('/contact','FrontHomeController@contact')->name('contact');
 Auth::routes();
 
 Route::get('/admin', 'HomeController@index')->name('admin');
-Route::get('/admin/who_i_am', 'admin\WoiController@index')->name('who_i_am');
+Route::get('/admin/who_i_am', 'admin\WoiController@edit')->name('who_i_am');
+Route::post('/admin/who_i_am', 'admin\WoiController@update')->name('who_i_am_update');
 Route::get('/admin/studies', 'admin\StudiesController@index')->name('studies');
 Route::get('/admin/experiences', 'admin\ExperiencesController@index')->name('experiences');
-Route::get('/admin/edit_experiences', 'admin\EditExperiencesController@index')->name('edit_experiences');
-Route::get('/admin/techno', 'admin\TechnoController@index')->name('techno');
+Route::get('/admin/edit_experiences', 'admin\ExperiencesController@edit')->name('edit_experiences');
+Route::get('/admin/techno', 'admin\TechnoController@edit')->name('techno');
 Route::get('/admin/mail_list', 'admin\MailController@index')->name('mail_list');
-Route::get('/admin/mail_read', 'admin\MailReadController@index')->name('mail');
-Route::get('/admin/social', 'admin\SocialController@index')->name('social');
+Route::get('/admin/mail_read', 'admin\MailReadController@show')->name('mail');
+Route::get('/admin/social', 'admin\SocialController@edit')->name('social');

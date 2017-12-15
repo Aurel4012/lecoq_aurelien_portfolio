@@ -1,32 +1,22 @@
 <?php
 
-namespace App\Http\Controllers\admin;
+namespace App\Http\Controllers;
 
-use App\techno;
+use App\experiences;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
-class TechnoController extends Controller
+class TestController extends Controller
 {
-     /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     /**
-     * Show the application dashboard.
+     * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-         
+        //
     }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -51,10 +41,10 @@ class TechnoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\techno  $techno
+     * @param  \App\experiences  $experiences
      * @return \Illuminate\Http\Response
      */
-    public function show(techno $techno)
+    public function show(experiences $experiences)
     {
         //
     }
@@ -62,23 +52,22 @@ class TechnoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\techno  $techno
+     * @param  \App\experiences  $experiences
      * @return \Illuminate\Http\Response
      */
-    public function edit(techno $techno)
+    public function edit(experiences $experiences)
     {
-        $title = "Techno";
-        return view('admin/techno',compact('title'));
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\techno  $techno
+     * @param  \App\experiences  $experiences
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, techno $techno)
+    public function update(Request $request, experiences $experiences)
     {
         //
     }
@@ -86,10 +75,10 @@ class TechnoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\techno  $techno
+     * @param  \App\experiences  $experiences
      * @return \Illuminate\Http\Response
      */
-    public function destroy(techno $techno)
+    public function destroy(experiences $experiences)
     {
         //
     }
