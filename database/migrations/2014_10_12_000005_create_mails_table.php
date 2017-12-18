@@ -20,6 +20,7 @@ class CreateMailsTable extends Migration
            $table->string('name_mails');
            $table->string('last_name_mails');
            $table->string('subject_mails');
+           $table->string('message_mails');
            $table->timestamps();
            $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
         });

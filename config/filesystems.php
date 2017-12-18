@@ -62,7 +62,21 @@ return [
             'region' => env('AWS_DEFAULT_REGION'),
             'bucket' => env('AWS_BUCKET'),
         ],
-
+        'upload_exp' => [
+            'driver' => 'local',
+            'root' => public_path().'\uploads\exp',
+            'visibility' => 'public',
+        ],
+        'upload_tech' => [
+            'driver' => 'local',
+            'root' => public_path().'\uploads\tech',
+            'visibility' => 'public',
+        ],
+        'upload_sn' => [
+            'driver' => 'local',
+            'root' => public_path().'\uploads\sn',
+            'visibility' => 'public',
+        ],
     ],
 
 ];

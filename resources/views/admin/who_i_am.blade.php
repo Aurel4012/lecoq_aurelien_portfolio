@@ -22,6 +22,7 @@
         <!--qui suis je-->
 <form method="POST" action="{{ route('who_i_am_update') }}">
     {{ csrf_field() }}
+
 <div class="col-lg-12 info-color z-depth-4 border border-dark rounded mx-5">
              <div class="md-form col-lg-12 ">
       <div class="p-2" >
@@ -32,11 +33,14 @@
         <div class="p-2" >
        
         <i class="fa fa-pencil prefix animated fadeIn text-dark"></i>
+    @if ($errors->has('mypresentation'))
+    <h6 class="animated bounce infinite text-danger font-weight-bold ">{{ $errors->first('mypresentation') }}</h6>
+     @endif
         <textarea id="mytextarea" name="mypresentation" class="md-textarea ph-100 my-4 p-4" style="height: 300px"></textarea>
         
     </div>
       <button type="submit" class="btn btn-warning warning-color my-2">Modifier</button> 
-        
+         
            
 
 

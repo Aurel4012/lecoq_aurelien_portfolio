@@ -56,7 +56,7 @@
                     <div class="col-md-6">
                         <div class="md-form">
                             <div class="md-form">
-                                <input type="text" id="name" name="name" class="form-control">
+                                <input type="text" id="name" name="name_mails" class="form-control">
                                 <label for="name" class="">Votre prénom</label>
                             </div>
                         </div>
@@ -66,7 +66,7 @@
                     <div class="col-md-6">
                         <div class="md-form">
                             <div class="md-form">
-                                <input type="text" id="lastname" name="lastname" class="form-control">
+                                <input type="text" id="lastname" name="last_name_mails" class="form-control">
                                 <label for="name" class="">Votre nom</label>
                             </div>
                         </div>
@@ -76,7 +76,7 @@
                     <div class="col-md-12">
                         <div class="md-form">
                             <div class="md-form">
-                                <input type="text" id="email" name="email" class="form-control">
+                                <input type="text" id="email" name="email_mails" class="form-control">
                                 <label for="email" class="">Votre email</label>
                             </div>
                         </div>
@@ -90,7 +90,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="md-form">
-                            <input type="text" id="subject" name="subject" class="form-control">
+                            <input type="text" id="subject" name="subject_mails" class="form-control">
                             <label for="subject" class="">Sujet</label>
                         </div>
                     </div>
@@ -104,7 +104,7 @@
                     <div class="col-md-12">
 
                         <div class="md-form">
-                            <textarea type="text" id="message" name="message" class="md-textarea"></textarea>
+                            <textarea type="text" id="message" name="message_mails" class="md-textarea"></textarea>
                             <label for="message">Votre message</label>
                         </div>
 

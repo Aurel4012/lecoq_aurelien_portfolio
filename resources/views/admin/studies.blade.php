@@ -48,7 +48,8 @@
 <div class="info-color z-depth-4 border border-dark rounded p-4 mx-5">
     
              <div class="md-form col-auto ">
-      <form class="form-horizontal bg-light py-4">
+      <form class="form-horizontal bg-light py-4" method="POST" action="{{ route('studies_update') }}">
+         {{ csrf_field() }}
 <fieldset>
 
 <!-- Form Name -->
@@ -71,7 +72,7 @@
 <!-- Textarea -->
 <div class="form-group">
   <div class="col-md-12">                     
-    <textarea class="form-control" id="textarea" name="description_stud" style="height: 300px">default text</textarea>
+    <textarea class="form-control" id="textarea" name="description_stud" placeholder="description" style="height: 300px"></textarea>
   </div>
 </div>
 <!-- Date -->

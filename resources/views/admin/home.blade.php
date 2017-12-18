@@ -1,7 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-
+@isset($messageflash)
+   <div id="test" class="animated fadeOut alert alert-success" role="alert">
+  {{$messageflash}}
+</div>
+@endisset
 
 <section class="container">
                     <div class="row ">
@@ -27,13 +31,13 @@
     <!--Etudes-->
             <div class="d-flex">
         <div class="p-2" >
-        <a href="{{route('studies')}}"><i class="fa fa-graduation-cap btn-lg btn-dark hoverable px-4" aria-hidden="true"></i></a>
+        <a href="{{route('edit_studies')}}"><i class="fa fa-graduation-cap btn-lg btn-dark hoverable px-4" aria-hidden="true"></i></a>
         </div>
         <div class="m-2" >
-        <a href="{{route('studies')}}"><h3 class="animated fadeIn text-dark">- Mes études: </h3></a>
+        <a href="{{route('edit_studies')}}"><h3 class="animated fadeIn text-dark">- Mes études: </h3></a>
         </div>
         <div class="ml-auto p-2" >
-            <a href="{{route('studies')}}"><button type="button" class="btn btn-warning warning-color my-2">Modifier</button></a>
+            <a href="{{route('edit_studies')}}"><button type="button" class="btn btn-warning warning-color my-2">Modifier</button></a>
         </div>
             </div><!-- fin du row
  -->       
@@ -43,7 +47,7 @@
         <div class="p-2" >
         <a href="{{route('experiences')}}"><i class="fa fa-area-chart btn-lg btn-dark hoverable px-4" aria-hidden="true"></i></a>
         </div>
-        <div class="m-2" >
+        <div class="m-2 " >
         <a href="{{route('experiences')}}"><h3 class="animated fadeIn text-dark">- Mes expériences: </h3>  </div></a>
         <div class="ml-auto p-2" >
              <a href="{{route('experiences')}}"><button type="button" class="btn btn-warning warning-color my-2">Modifier</button></a>

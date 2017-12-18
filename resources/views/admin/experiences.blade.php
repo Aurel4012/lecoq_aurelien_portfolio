@@ -21,7 +21,7 @@
                         <!--Section: tab admin-->
 <section class="col-md-8 col-md-offset-2">
     
-        <!--qui suis je-->
+        <!--experiences-->
         <div class="col-md-12 info-color z-depth-4 border border-dark rounded mx-5">
             <div class="d-flex">
         <div class="m-2" >
@@ -37,7 +37,7 @@
 
    
     <div class="row justify-content-center py-2">
-        <a href="{{route('portfolio')}}"><button type="button" class="btn btn-warning info-color my-2"> Ajouter</button></a>
+        <a href="{{route('edit_experiences')}}"><button type="button" class="btn btn-warning info-color my-2"> Ajouter</button></a>
     </div>
         </div>
         

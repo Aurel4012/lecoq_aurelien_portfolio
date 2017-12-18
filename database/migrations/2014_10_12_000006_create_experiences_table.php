@@ -19,6 +19,7 @@ class CreateExperiencesTable extends Migration
            $table->string('title_exp');
            $table->string('description_exp');
            $table->string('url_exp');
+           $table->string('file_exp');
            $table->date('date_exp');
            $table->timestamps();
            $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');

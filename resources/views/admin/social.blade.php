@@ -31,7 +31,8 @@
 <div class="info-color z-depth-4 border border-dark rounded p-4 mx-5">
     
              <div class="md-form col-auto ">
-      <form class="form-horizontal bg-light py-4">
+      <form class="form-horizontal bg-light py-4" method="POST" action="{{ route('social_update') }}" enctype="multipart/form-data">
+        {{ csrf_field() }}
 <fieldset>
 
 <!-- Form Name -->
@@ -50,7 +51,7 @@
 <!-- Text input-->
 <div class="form-group ">
   <div class="col-md-12 py-2"> 
-    <input type="file" class="form-control-file" name="logo-sn" id="exampleFormControlFile1">
+    <input type="file" class="form-control-file" name="logo_sn" id="exampleFormControlFile1">
 </div>
 </div>
 

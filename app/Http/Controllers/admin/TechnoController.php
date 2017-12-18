@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\admin;
 
-use App\techno;
+use App\Model\Techno;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
 class TechnoController extends Controller
 {
@@ -32,9 +33,18 @@ class TechnoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request, Techno $techno)
     {
-        //
+         $techno = new Techno($request->except('csrf_token'));
+        
+         $techno->id_user = $request->user()->id;
+
+         $fname = Storage::disk('upload_tech')->put('', $request->logo_tech);
+        $techno->logo_tech = $request->logo_tech->getClientOriginalName();
+        // sauvegarde bdd
+        $techno->save();
+        $messageflash = "Données Techno crées!";
+        return view('admin/home',compact('messageflash'));
     }
 
     /**
@@ -54,7 +64,7 @@ class TechnoController extends Controller
      * @param  \App\techno  $techno
      * @return \Illuminate\Http\Response
      */
-    public function show(techno $techno)
+    public function show(Techno $techno)
     {
         //
     }
@@ -65,7 +75,7 @@ class TechnoController extends Controller
      * @param  \App\techno  $techno
      * @return \Illuminate\Http\Response
      */
-    public function edit(techno $techno)
+    public function edit(Techno $techno)
     {
         $title = "Techno";
         return view('admin/techno',compact('title'));
@@ -78,9 +88,18 @@ class TechnoController extends Controller
      * @param  \App\techno  $techno
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, techno $techno)
+    public function update(Request $request, Techno $techno)
     {
-        //
+         $techno = new Techno($request->except('csrf_token'));
+        
+         $techno->id_user = $request->user()->id;
+
+         $fname = Storage::disk('upload_tech')->put('', $request->logo_tech);
+        $techno->logo_tech = $request->logo_tech->getClientOriginalName();
+        // sauvegarde bdd
+        $techno->save();
+        $messageflash = "Données Techno sauvegardées!";
+        return view('admin/home',compact('messageflash'));
     }
 
     /**
@@ -89,7 +108,7 @@ class TechnoController extends Controller
      * @param  \App\techno  $techno
      * @return \Illuminate\Http\Response
      */
-    public function destroy(techno $techno)
+    public function destroy(Techno $techno)
     {
         //
     }

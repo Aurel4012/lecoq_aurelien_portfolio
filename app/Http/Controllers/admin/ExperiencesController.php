@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\admin;
 
-use App\experiences;
+use App\Model\Experiences;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
 class ExperiencesController extends Controller
 {
@@ -34,9 +35,18 @@ class ExperiencesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request, Experiences $experiences)
     {
-        //
+        $experiences = new Experiences($request->except('csrf_token'));
+        
+         $experiences->id_user = $request->user()->id;
+
+         $fname = Storage::disk('upload_exp')->put('', $request->file_exp);
+        $experiences->file_exp = $request->file_exp->getClientOriginalName();
+        // sauvegarde bdd
+        $experiences->save();
+        $messageflash = "Données Expériences crée!";
+        return view('admin/home',compact('messageflash'));
     }
 
     /**
@@ -56,7 +66,7 @@ class ExperiencesController extends Controller
      * @param  \App\experiences  $experiences
      * @return \Illuminate\Http\Response
      */
-    public function show(experiences $experiences)
+    public function show(Experiences $experiences)
     {
         //
     }
@@ -67,7 +77,7 @@ class ExperiencesController extends Controller
      * @param  \App\experiences  $experiences
      * @return \Illuminate\Http\Response
      */
-    public function edit(experiences $experiences)
+    public function edit(Experiences $experiences)
     {
               $title = "Edit Expériences";
         return view('admin/edit_experiences',compact('title'));
@@ -80,9 +90,18 @@ class ExperiencesController extends Controller
      * @param  \App\experiences  $experiences
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, experiences $experiences)
+    public function update(Request $request, Experiences $experiences)
     {
-        //
+         $experiences = new Experiences($request->except('csrf_token'));
+        
+         $experiences->id_user = $request->user()->id;
+
+         $fname = Storage::disk('upload_exp')->put('', $request->file_exp);
+        $experiences->file_exp = $request->file_exp->getClientOriginalName();
+        // sauvegarde bdd
+        $experiences->save();
+        $messageflash = "Données Expériences sauvegardées!";
+        return view('admin/home',compact('messageflash'));
     }
 
     /**
@@ -91,7 +110,7 @@ class ExperiencesController extends Controller
      * @param  \App\experiences  $experiences
      * @return \Illuminate\Http\Response
      */
-    public function destroy(experiences $experiences)
+    public function destroy(Experiences $experiences)
     {
         //
     }

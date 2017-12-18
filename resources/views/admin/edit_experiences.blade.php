@@ -48,7 +48,8 @@
 <div class="info-color z-depth-4 border border-dark rounded p-4 mx-5">
     
              <div class="md-form col-auto ">
-      <form class="form-horizontal bg-light py-4">
+      <form class="form-horizontal bg-light py-4" method="POST" action="{{ route('experiences_update') }}" enctype="multipart/form-data">
+        {{ csrf_field() }}
 <fieldset>
 
 <!-- Form Name -->
@@ -57,20 +58,20 @@
 <!-- Text input-->
 <div class="form-group">
   <div class="col-md-12">
-  <input id="textinput" name="certif_stud" type="text" placeholder="Titres" class="form-control input-md">
+  <input id="textinput" name="title_exp" type="text" placeholder="Titres" class="form-control input-md">
   </div>
 </div>
 <!-- Textarea -->
 <div class="form-group">
   <div class="col-md-12">                     
-    <textarea class="form-control" id="textarea" name="description_stud" style="height: 300px">Votre text</textarea>
+    <textarea class="form-control" id="textarea" placeholder="votre descriptif" name="description_exp" style="height: 300px"></textarea>
   </div>
 </div>
 <!-- Text input-->
 <div class="form-group ">
     <div class="col-md-12">    <label>  Url du site</label>  </div>
   <div class="col-md-12">
-  <input type="url" value="http://" class="form-control input-md my-4" name="website">
+  <input type="url" value="http://" name="url_exp" class="form-control input-md my-4" name="website">
   </div>
 </div>
 
@@ -80,14 +81,14 @@
   <div class="col-md-12">
   <div class="row">
   <div class="col-md-6"> 
-  <div class="col-md-12">    <label>Date de début</label>  </div>
+  <div class="col-md-12">    <label>Date de production</label>  </div>
    <div class="row">
    
-    <div class="col-md-8"> <input class="my-4" type="date" name="begin_date_stud"> </div>
+    <div class="col-md-8"> <input class="my-4" type="date" name="date_exp"> </div>
   </div>
 </div>
  <div class="col-md-12 py-2"> 
-    <input type="file" class="form-control-file px-4" id="exampleFormControlFile1">
+    <input type="file" name="file_exp" class="form-control-file px-4" id="exampleFormControlFile1">
 </div>
 <button type="submit" class="btn btn-warning warning-color">Modifier</button> 
 </fieldset>

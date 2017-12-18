@@ -30,7 +30,8 @@
 <div class="info-color z-depth-4 border border-dark rounded p-4 mx-5">
     
              <div class="md-form col-auto ">
-      <form class="form-horizontal bg-light py-4">
+      <form class="form-horizontal bg-light py-4" method="POST" action="{{ route('techno_update') }}" enctype="multipart/form-data">
+        {{ csrf_field() }}
 <fieldset>
 
 <!-- Form Name -->
@@ -39,7 +40,7 @@
 <!-- Text input-->
 <div class="form-group">
   <div class="col-md-10">
-  <input id="textinput" name="certif_stud" type="text" placeholder="Technologie" class="form-control input-md">
+  <input id="textinput" name="lab_tech" type="text" placeholder="Technologie" class="form-control input-md">
   </div>
 </div>
 

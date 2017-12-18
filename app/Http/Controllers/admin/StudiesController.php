@@ -2,32 +2,22 @@
 
 namespace App\Http\Controllers\admin;
 
-use App\studies;
+use App\Model\Studies;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class StudiesController extends Controller
 {
-        /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     /**
-     * Show the application dashboard.
+     * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-         $title = "Etudes";
-        return view('admin/studies',compact('title'));
+        //
     }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -52,44 +42,51 @@ class StudiesController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\studies  $studies
+     * @param  \App\Model\Studies  $studies
      * @return \Illuminate\Http\Response
      */
-    public function show(studies $studies)
+    public function show(Studies $studies)
     {
-       
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\studies  $studies
+     * @param  \App\Model\Studies  $studies
      * @return \Illuminate\Http\Response
      */
-    public function edit(studies $studies)
+    public function edit(Studies $studies)
     {
-        //
+        $title = "Etudes";
+        return view('admin/studies',compact('title')); 
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\studies  $studies
+     * @param  \App\Model\Studies  $studies
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, studies $studies)
+    public function update(Request $request, Studies $studies)
     {
-        //
+         $studies = new Studies($request->except('csrf_token'));
+         $studies->id_user = $request->user()->id;
+         // dd($who_i_am->id_user);
+        // sauvegarde bdd
+        $studies->save();
+        $messageflash = "Données Etudes sauvegardées!";
+        return view('admin/home',compact('messageflash'));
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\studies  $studies
+     * @param  \App\Model\Studies  $studies
      * @return \Illuminate\Http\Response
      */
-    public function destroy(studies $studies)
+    public function destroy(Studies $studies)
     {
         //
     }

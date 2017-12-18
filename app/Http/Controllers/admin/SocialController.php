@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\admin;
 
-use App\social_network;
+use App\Model\Social_network;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
 class SocialController extends Controller
 {
@@ -33,9 +34,18 @@ class SocialController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request, Social_network $social_network)
     {
-        //
+         $social_network = new Social_network($request->except('csrf_token'));
+        
+         $social_network->id_user = $request->user()->id;
+
+         $fname = Storage::disk('upload_sn')->put('', $request->logo_sn);
+        $social_network->logo_sn = $request->logo_sn->getClientOriginalName();
+        // sauvegarde bdd
+        $social_network->save();
+        $messageflash = "Données social_network crées!";
+        return view('admin/home',compact('messageflash'));
     }
 
     /**
@@ -55,7 +65,7 @@ class SocialController extends Controller
      * @param  \App\social_network  $social_network
      * @return \Illuminate\Http\Response
      */
-    public function show(social_network $social_network)
+    public function show(Social_network $social_network)
     {
         //
     }
@@ -66,7 +76,7 @@ class SocialController extends Controller
      * @param  \App\social_network  $social_network
      * @return \Illuminate\Http\Response
      */
-    public function edit(social_network $social_network)
+    public function edit(Social_network $social_network)
     {
          $title = "Réseaux Sociaux";
         return view('admin/social',compact('title'));
@@ -79,9 +89,18 @@ class SocialController extends Controller
      * @param  \App\social_network  $social_network
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, social_network $social_network)
+    public function update(Request $request, Social_network $social_network)
     {
-        //
+         $social_network = new Social_network($request->except('csrf_token'));
+        
+         $social_network->id_user = $request->user()->id;
+         $fname = Storage::disk('upload_sn')->put('', $request->logo_sn);
+        $social_network->logo_sn = $request->logo_sn->getClientOriginalName();
+
+        // sauvegarde bdd
+        $social_network->save();
+        $messageflash = "Données social_network sauvegardées!";
+        return view('admin/home',compact('messageflash'));
     }
 
     /**
@@ -90,7 +109,7 @@ class SocialController extends Controller
      * @param  \App\social_network  $social_network
      * @return \Illuminate\Http\Response
      */
-    public function destroy(social_network $social_network)
+    public function destroy(Social_network $social_network)
     {
         //
     }
