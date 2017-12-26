@@ -12,6 +12,7 @@
 html, body, .perspectivemenu {
 	width: 100%;
 	height: 100%;
+
 }
 
 .perspectivemenu {
@@ -21,6 +22,8 @@ html, body, .perspectivemenu {
 
 .containermenu {
 	background: #fff;
+/*	background-image: url("../img/html-1832991_1280.png")!important;
+         background-repeat: repeat-y;*/
 	min-height: 100%;
 	position: relative;
 	outline: 1px solid rgba(0,0,0,0);

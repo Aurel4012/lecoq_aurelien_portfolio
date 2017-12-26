@@ -47,8 +47,13 @@
 
         <!--Grid column-->
         <div class="col-md-12">
-            <form id ="contact-form" name="contact-form" action="mail.php" method="POST">
-
+            @isset($messageflash)
+   <div id="test" class="animated fadeOut alert alert-success" role="alert">
+  {{$messageflash}}
+</div>
+@endisset
+            <form id ="contact-form" name="contact-form" method="POST" action="{{ route('mail_send') }}">
+                {{ csrf_field() }}
                 <!--Grid row-->
                 <div class="row">
 
@@ -56,8 +61,12 @@
                     <div class="col-md-6">
                         <div class="md-form">
                             <div class="md-form">
+                            
                                 <input type="text" id="name" name="name_mails" class="form-control">
                                 <label for="name" class="">Votre prénom</label>
+                                    @if ($errors->has('name_mails'))
+                                     <h6 class="animated bounce infinite text-danger font-weight-bold ">Merci de renseigner votre prénom</h6>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -68,6 +77,9 @@
                             <div class="md-form">
                                 <input type="text" id="lastname" name="last_name_mails" class="form-control">
                                 <label for="name" class="">Votre nom</label>
+                                     @if ($errors->has('last_name_mails'))
+                                     <h6 class="animated bounce infinite text-danger font-weight-bold ">Merci de renseigner votre nom</h6>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -76,7 +88,7 @@
                     <div class="col-md-12">
                         <div class="md-form">
                             <div class="md-form">
-                                <input type="text" id="email" name="email_mails" class="form-control">
+                                <input type="email" id="email" name="from_mails" class="form-control">
                                 <label for="email" class="">Votre email</label>
                             </div>
                         </div>
@@ -111,14 +123,14 @@
                     </div>
                 </div>
                 <!--Grid row-->
-
+                <div class="center-on-small-only">
+                <button class="btn btn-primary" type="submit">Ok</button>
+                </div>
+            
+                </div>
             </form>
 
-            <div class="center-on-small-only">
-                <a class="btn btn-primary" onclick="document.getElementById('contact-form').submit();">Ok</a>
-            </div>
-            <div class="status" id="status"></div>
-        </div>
+            
         
 
     </div>

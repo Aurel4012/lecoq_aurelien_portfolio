@@ -39,38 +39,21 @@
 <section class="container">
                     <div class="row justify-content-center">
 
-                        <div class="col-lg-3 col-md-3 col-xs-12 col-sm-12 mt-3 mb-3">
+                        <div class="col-lg-6 col-md-6 col-xs-12 col-sm-12 mt-6 mb-6">
                             <div class="card card-body">
                                 <h4 class="card-title">Qui suis je?</h4>
                                 <p class="card-text"> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
-                                <div class="flex-row">
-                                    <a class="card-link">Card link</a>
-                                    <a class="card-link">Another link</a>
-                                </div>
                             </div>
                         </div>
 
-                        <div class="col-lg-3 col-md-3 col-xs-12 col-sm-12 mt-3 mb-3">
+                        <div class="col-lg-6 col-md-6 col-xs-12 col-sm-12 mt-6 mb-6">
                             <div class="card card-body">
                                 <h4 class="card-title">Etudes:</h4>
                                 <p class="card-text"> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
-                                <div class="flex-row">
-                                    <a class="card-link">Card link</a>
-                                    <a class="card-link">Another link</a>
-                                </div>
                             </div>
                         </div>
 
-                        <div class="col-lg-5 col-md-5 col-xs-12 col-sm-12 mt-3 mb-3">
-                            <div class="card card-body">
-                                <h4 class="card-title">Mes expériences</h4>
-                                <p class="card-text"> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat aborum. Sed ut perspiciatis unde omnis iste natus error sit emque laudantiumdeserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium </p>
-                                <div class="flex-row">
-                                    <a class="card-link">Card link</a>
-                                    <a class="card-link">Another link</a>
-                                </div>
-                            </div>
-                        </div>
+                    
 
                     </div>
                 </section>

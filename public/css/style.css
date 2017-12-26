@@ -4,6 +4,10 @@
 	font-family: 'Rancho',Arial, cursive;
 	
 }
+
+
+
+
  #test {
  		-moz-animation-duration: 3s;
         -webkit-animation-duration: 3s;
@@ -18,6 +22,7 @@
         animation-iteration-count: 2;
         animation-iteration-count: 2;
         }
+
 #welcomeTitle{
 
 	font-family: 'Rancho',Arial, cursive;

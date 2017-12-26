@@ -17,6 +17,7 @@ class CreateSocialNetworkTable extends Migration
            $table->increments('id');
            $table->integer('id_user')->unsigned();
            $table->string('link_sn');
+           $table->string('name_sn');
            $table->string('logo_sn');
            $table->timestamps();
            $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');

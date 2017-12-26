@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Model\Emails;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\ContactRequest;
 
 class FrontHomeController extends Controller
 {
@@ -18,4 +20,16 @@ class FrontHomeController extends Controller
    	 $title = "Aurélien Lecoq";
    	return view('contact',compact('title'));
    }
+    
+    public function envoiMails(ContactRequest $request)
+    {
+      
+         $mails = new Emails($request->except('csrf_token'));
+         $mails->id_user = $request->user()->id;
+         // dd($mails);
+         $mails->save();
+         $title = "Contact";
+         $messageflash = "Email envoyé! Merci";
+         return view('contact',compact('title','messageflash'));
+    }
 }

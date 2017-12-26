@@ -40,6 +40,9 @@
 
 <!-- Text input-->
 <div class="form-group">
+   <div class="col-md-10">
+  <input id="textinput" name="name_sn" type="text" placeholder="Nom du service" class="form-control input-md">
+  </div>
   <div class="col-md-10">
 <div class="input-group">
   <span class="input-group-addon" id="basic-addon3">https://example.com/</span>
@@ -74,16 +77,20 @@
         <h6 class="animated fadeIn text-dark p-4">Mes réseaux sociaux affichées:</h6>
         <hr>
             </div>
-        
+        @foreach($sn as $sn)
+    
     <div class="row">  
-    <div class="p-0" >
-        <h5 class="animated fadeIn text-dark p-4">Linkedin</h5>
+    
+    <div class="p-0 col-6" >
+
+        <h5 class="animated fadeIn text-dark p-4">{{$sn->name_sn}}</h5>
     </div>
-        <div class="p-0" >
-        <button type="button" class="btn-sm btn-danger danger-color my-4">Supprimer</button> 
-        </div>      
-         
+        <div class="p-0 col-6" >
+        <a href="{{env('APP_URL')}}/admin/social_del/{{$sn->id}}"><button type="button" class="btn-sm btn-danger danger-color my-4">Supprimer</button></a> 
+        </div>        
     </div>
+  
+    @endforeach
       <hr>
             </div>
     </div>

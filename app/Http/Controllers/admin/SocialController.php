@@ -9,15 +9,7 @@ use Illuminate\Support\Facades\Storage;
 
 class SocialController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    
 
     /**
      * Show the application dashboard.
@@ -79,7 +71,8 @@ class SocialController extends Controller
     public function edit(Social_network $social_network)
     {
          $title = "Réseaux Sociaux";
-        return view('admin/social',compact('title'));
+         $sn = Social_network::all();
+        return view('admin/social',compact('title','sn'));
     }
 
     /**
@@ -109,8 +102,12 @@ class SocialController extends Controller
      * @param  \App\social_network  $social_network
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Social_network $social_network)
+    public function destroy(Social_network $id)
     {
-        //
+        
+   
+        $id->delete();      
+       $messageflash = "Données social_network supprimées!";
+        return view('admin/home',compact('messageflash'));
     }
 }

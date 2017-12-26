@@ -2,21 +2,14 @@
 
 namespace App\Http\Controllers\admin;
 
-use App\mails;
+use App\Model\Emails;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\FormContactRequest;
 
 class MailController extends Controller
 {
-   /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+   
 
     /**
      * Show the application dashboard.
@@ -26,7 +19,9 @@ class MailController extends Controller
     public function index()// retourne la liste des mails
     {
          $title = "Liste de mails";
-        return view('admin/mail_list',compact('title'));
+         $maillist = Emails::all();
+         // dd($maillist);
+        return view('admin/mail_list',compact('title','maillist'));
     }
 
     /**
@@ -34,9 +29,13 @@ class MailController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
+    public function create(FormContactRequest $request)
+    {  
+        $mails = new Emails($request->except('csrf_token'));
+        
+        $mails->save();
+        $messageflash = "Email envoyé! Merci";
+        return view('contact',compact('messageflash'));
     }
 
     /**
@@ -56,10 +55,12 @@ class MailController extends Controller
      * @param  \App\mails  $mails
      * @return \Illuminate\Http\Response
      */
-    public function show(mails $mails)//retourne un mail
+    public function show(Emails $id)//retourne un mail
     {
              $title = "Lecture de mails";
-        return view('admin/mail_read',compact('title'));
+              $mail = Emails::find($id);
+             
+        return view('admin/mail_read',compact('title','mail'));
     }
 
     /**
@@ -68,7 +69,7 @@ class MailController extends Controller
      * @param  \App\mails  $mails
      * @return \Illuminate\Http\Response
      */
-    public function edit(mails $mails)
+    public function edit(Emails $mails)
     {
         //
     }
@@ -80,7 +81,7 @@ class MailController extends Controller
      * @param  \App\mails  $mails
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, mails $mails)
+    public function update(Request $request, Emails $mails)
     {
         //
     }
@@ -91,8 +92,12 @@ class MailController extends Controller
      * @param  \App\mails  $mails
      * @return \Illuminate\Http\Response
      */
-    public function destroy(mails $mails)
+    public function destroy(Emails $id)
     {
-        //
+       $id->delete();  
+       $title = "Lecture de mails";    
+       $messageflash = "Email supprimé!";
+       $maillist = Emails::all();
+        return view('admin/mail_list',compact('title','messageflash','maillist'));
     }
 }

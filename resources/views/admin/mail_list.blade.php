@@ -9,6 +9,11 @@
         </div>
                      <div class="m-2">
              <h3 class="animated fadeIn text-dark">- Liste des mails: </h3></div>
+               @isset($messageflash)
+   <div id="test" class="animated fadeOut alert alert-success" role="alert">
+  {{$messageflash}}
+</div>
+@endisset
          <div class="ml-auto p-2" >
             
             <a href="{{route('admin')}}"><button type="button" class="btn btn-warning info-color my-2"><i class="fa fa-home" aria-hidden="true"></i> Home admin</button></a>
@@ -37,24 +42,17 @@
     </tr>
   </thead>
   <tbody>
+     @foreach($maillist as $maillist)
     <tr>
-      <th scope="row" class="border-dark"><h5 class="text-dark font-weight-bold">marketiro@gmail.com</h5></th>
-      <td class="border-dark"><h5 class="text-dark font-weight-bold">Mark</h5></td>
-      <td class="border-dark"><h5 class="text-dark font-weight-bold">Etiro</h5></td>
-      <td class="border-dark"><h5 class="text-dark font-weight-bold">Demande d'info</h5></td>
-      <td class="border-dark"><h5 class="text-dark font-weight-bold">16/12/2017</h5></td>
-      <td class="border-dark"><h5 class="text-dark font-weight-bold"><a href="{{route('admin')}}"><button type="button" class="btn btn-pink btn-sm waves-effect font-weight-bold">Supprimer</button></h5></a></td>
-      <td class="border-dark"><h5 class="text-dark font-weight-bold"><a href="{{route('mail')}}"><button type="button" class="btn btn-light-blue btn-sm waves-effect font-weight-bold">Voir</button></h5></a></td>
+      <th scope="row" class="border-dark"><h5 class="text-dark font-weight-bold">{{$maillist->from_mails}}</h5></th>
+      <td class="border-dark"><h5 class="text-dark font-weight-bold">{{$maillist->name_mails}}</h5></td>
+      <td class="border-dark"><h5 class="text-dark font-weight-bold">{{$maillist->last_name_mails}}</h5></td>
+      <td class="border-dark"><h5 class="text-dark font-weight-bold">{{$maillist->subject_mails}}</h5></td>
+      <td class="border-dark"><h5 class="text-dark font-weight-bold">{{$maillist->created_at->format('d-m-Y à H:i')}}</h5></td>
+      <td class="border-dark"><h5 class="text-dark font-weight-bold"><a href="{{env('APP_URL')}}/admin/mail_del/{{$maillist->id}}"><button type="button" class="btn btn-pink btn-sm waves-effect font-weight-bold">Supprimer</button></h5></a></td>
+      <td class="border-dark"><h5 class="text-dark font-weight-bold"><a href="{{env('APP_URL')}}/admin/mail_read/{{$maillist->id}}"><button type="button" class="btn btn-light-blue btn-sm waves-effect font-weight-bold">Voir</button></h5></a></td>
     </tr>
-    <tr>
-      <th scope="row" class="border-dark"><h5 class="text-dark font-weight-bold">jacobverant@yahoo.fr</h5></th>
-      <td class="border-dark"><h5 class="text-dark font-weight-bold">Jacob</h5></td>
-      <td class="border-dark"><h5 class="text-dark font-weight-bold">Verant</h5></td>
-      <td class="border-dark"><h5 class="text-dark font-weight-bold">votre site</h5></td>
-      <td class="border-dark"><h5 class="text-dark font-weight-bold">18/12/2017</h5></td>
-      <td class="border-dark"><h5 class="text-dark font-weight-bold"><a href="{{route('admin')}}"><button type="button" class="btn btn-pink btn-sm waves-effect font-weight-bold">Supprimer</button></h5></a></td>
-      <td class="border-dark"><h5 class="text-dark font-weight-bold"><a href="{{route('mail')}}"><button type="button" class="btn btn-light-blue btn-sm waves-effect font-weight-bold">Voir</button></h5></a></td>
-    </tr>
+    @endforeach
   </tbody>
 </table>
             </div>

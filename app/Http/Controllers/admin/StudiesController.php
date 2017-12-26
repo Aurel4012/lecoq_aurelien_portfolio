@@ -8,15 +8,7 @@ use App\Http\Controllers\Controller;
 
 class StudiesController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
+    
 
     /**
      * Show the form for creating a new resource.
@@ -73,8 +65,6 @@ class StudiesController extends Controller
     {
          $studies = new Studies($request->except('csrf_token'));
          $studies->id_user = $request->user()->id;
-         // dd($who_i_am->id_user);
-        // sauvegarde bdd
         $studies->save();
         $messageflash = "Données Etudes sauvegardées!";
         return view('admin/home',compact('messageflash'));
