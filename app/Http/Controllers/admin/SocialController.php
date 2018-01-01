@@ -88,7 +88,7 @@ class SocialController extends Controller
         
          $social_network->id_user = $request->user()->id;
          $fname = Storage::disk('upload_sn')->put('', $request->logo_sn);
-        $social_network->logo_sn = $request->logo_sn->getClientOriginalName();
+        // $social_network->logo_sn = $request->logo_sn->getClientOriginalName();
 
         // sauvegarde bdd
         $social_network->save();

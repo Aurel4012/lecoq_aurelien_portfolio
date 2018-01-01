@@ -18,7 +18,8 @@ class ExperiencesController extends Controller
     public function index()
     {
          $title = "Edit Expériences";
-        return view('admin/experiences',compact('title'));
+         $experiences = Experiences::all();
+        return view('admin/experiences',compact('title','experiences'));
     }
 
     /**
@@ -59,7 +60,9 @@ class ExperiencesController extends Controller
      */
     public function show(Experiences $experiences)
     {
-        //
+        $title = "Edit Expériences";
+        $exp = Experiences::all();
+        return view('admin/edit_experiences',compact('title','exp'));
     }
 
     /**
@@ -68,10 +71,11 @@ class ExperiencesController extends Controller
      * @param  \App\experiences  $experiences
      * @return \Illuminate\Http\Response
      */
-    public function edit(Experiences $experiences)
+    public function edit(Experiences $id)
     {
               $title = "Edit Expériences";
-        return view('admin/edit_experiences',compact('title'));
+              $experiences = Experiences::find($id);
+        return view('admin/edit_experiences',compact('title','experiences'));
     }
 
     /**
@@ -86,7 +90,7 @@ class ExperiencesController extends Controller
          $experiences = new Experiences($request->except('csrf_token'));
         
          $experiences->id_user = $request->user()->id;
-
+         $originalfname = $request->file_exp->getClientOriginalName();
          $fname = Storage::disk('upload_exp')->put('', $request->file_exp);
         $experiences->file_exp = $request->file_exp->getClientOriginalName();
         // sauvegarde bdd
@@ -101,8 +105,10 @@ class ExperiencesController extends Controller
      * @param  \App\experiences  $experiences
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Experiences $experiences)
+    public function destroy(Experiences $id)
     {
-        //
+       $id->delete();    
+       $messageflash = "Experience supprimée!";
+       return view('admin/home',compact('messageflash'));
     }
 }

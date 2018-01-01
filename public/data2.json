@@ -1,0 +1,53 @@
+{
+    "scale": "human",
+    "title": {
+                "media": {
+                    "caption": "",
+                    "credit": "",
+                    "url": "<iframe width='480' height='360' src='http://www.surfradio.fr' frameborder='0' scrolling='yes' allowtransparency='true' style='background-color:transparent;'></iframe",
+                    "thumb":    ""
+                },
+                "text": {
+                    "headline": "Welcome to TimelineJS",
+                    "text": "<p>TimelineJS is an open-source tool that enables you to build visually-rich interactive timelines and is available in 40 languages.</p><p>You're looking at an example of one right now.</p><p>Click on the arrow to the right to learn more.</p>"
+                }
+        },
+    "events": [
+        {
+            "start_date": {
+                "year":         "1851",
+                "month":        "",
+                "day":          "",
+                "hour":         "",
+                "minute":       "",
+                "second":       "",
+                "millisecond":  "",
+                "format":       ""
+            },
+            "group": "Hello",
+            "media": {
+                "caption": "Screenshot from TimelineJS Embed Generator tool (see below)",
+                "credit": "",
+                "url": "http://timeline.knightlab.com/static/welcome/step3.png",
+                "thumb":    ""
+            },
+            "text": {
+                "headline": "It's Easy to Make Your Own Timeline",
+                "text": "The TimelineJS Embed Generator makes it easy to add a timeline to your own site. Just copy our Google Spreadsheet template, add your events as rows in the spreadsheet, and use our <a href='#make'>generator tool</a> to generate the HTML you need to add to your site."
+            }
+        },
+        {
+            "start_date": {
+                "year":         "1857",
+                "month":        "",
+                "day":          "",
+                "hour":         "",
+                "minute":       "",
+                "second":       "",
+                "millisecond":  "",
+                "format":       ""
+            },
+      
+        }
+    ]
+}

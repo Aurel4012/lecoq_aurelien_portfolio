@@ -34,10 +34,24 @@
         <a href="{{route('edit_studies')}}"><i class="fa fa-graduation-cap btn-lg btn-dark hoverable px-4" aria-hidden="true"></i></a>
         </div>
         <div class="m-2" >
-        <a href="{{route('edit_studies')}}"><h3 class="animated fadeIn text-dark">- Mes études: </h3></a>
+        <a href="{{route('edit_studies')}}"><h3 class="animated fadeIn text-dark">- Mes études et formations: </h3></a>
         </div>
         <div class="ml-auto p-2" >
             <a href="{{route('edit_studies')}}"><button type="button" class="btn btn-warning warning-color my-2">Modifier</button></a>
+        </div>
+            </div><!-- fin du row
+ -->       
+        <hr> 
+            <!--jobs-->
+            <div class="d-flex">
+        <div class="p-2" >
+        <a href="{{route('edit_jobs')}}"><i class="fa fa-handshake-o btn-lg btn-dark hoverable px-4" aria-hidden="true"></i></a>
+        </div>
+        <div class="m-2" >
+        <a href="{{route('edit_jobs')}}"><h3 class="animated fadeIn text-dark">- Mes emplois: </h3></a>
+        </div>
+        <div class="ml-auto p-2" >
+            <a href="{{route('edit_jobs')}}"><button type="button" class="btn btn-warning warning-color my-2">Modifier</button></a>
         </div>
             </div><!-- fin du row
  -->       

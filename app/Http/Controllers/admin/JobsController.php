@@ -2,13 +2,21 @@
 
 namespace App\Http\Controllers\admin;
 
-use App\Model\Studies;
+use App\Model\Jobs;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class StudiesController extends Controller
+class JobsController extends Controller
 {
-    
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        //
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -34,10 +42,10 @@ class StudiesController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Model\Studies  $studies
+     * @param  \App\Model\Jobs  $jobs
      * @return \Illuminate\Http\Response
      */
-    public function show(Studies $studies)
+    public function show(Jobs $jobs)
     {
         //
     }
@@ -45,42 +53,42 @@ class StudiesController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Model\Studies  $studies
+     * @param  \App\Model\Jobs  $jobs
      * @return \Illuminate\Http\Response
      */
-    public function edit(Studies $studies)
+    public function edit(Jobs $jobs)
     {
-        $title = "Etudes";
-        $studies = Studies::all();
-        return view('admin/studies',compact('title','studies')); 
+          $title = "Emplois";
+        $jobs = Jobs::all();
+        return view('admin/jobs',compact('title','jobs')); 
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Model\Studies  $studies
+     * @param  \App\Model\Jobs  $jobs
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Studies $studies)
+    public function update(Request $request, Jobs $jobs)
     {
-         $studies = new Studies($request->except('csrf_token'));
-         $studies->id_user = $request->user()->id;
-        $studies->save();
-        $messageflash = "Données Etudes sauvegardées!";
+       $job = new Jobs($request->except('csrf_token'));
+         $job->id_user = $request->user()->id;
+        $job->save();
+        $messageflash = "Données emplois sauvegardées!";
         return view('admin/home',compact('messageflash'));
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Model\Studies  $studies
+     * @param  \App\Model\Jobs  $jobs
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Studies $id)
+    public function destroy(Jobs $id)
     {
-       $id->delete();  
-       $messageflash = "Etude supprimée!";
+        $id->delete();    
+       $messageflash = "Job supprimé!";
        return view('admin/home',compact('messageflash'));
     }
 }

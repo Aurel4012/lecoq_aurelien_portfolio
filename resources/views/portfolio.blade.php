@@ -45,7 +45,9 @@
 				</section>
   				</div><!-- fin container fluid -->
 				<div class="spacesbetweendiv"></div>
-							    
+					<footer class="row text-center">
+                    <h5 class="col-lg-10 col-md-10 col-xs-12 col-sm-12 font-effect-shadow-multiple" id="welcomeTitle">© Aurélien Lecoq {{date("Y")}}</h5>   
+                </footer> 		    
 				</div><!-- wrapper -->
 			<div class="spacesheader"></div>
 			</div><!-- /container -->
@@ -73,7 +75,7 @@
 		<script src="{{url('js/menu.js')}}"></script>
 <script src="{{url('js/timeline.js')}}"></script>
 <script>
-	timeline_data = 'data.json';//'https://docs.google.com/spreadsheets/d/1xuY4upIooEeszZ_lCmeNx24eSFWe0rHe9ZdqH2xqVNk/edit#gid=0';
+	timeline_data = 'database.json';//'https://docs.google.com/spreadsheets/d/1xuY4upIooEeszZ_lCmeNx24eSFWe0rHe9ZdqH2xqVNk/edit#gid=0';
 	 window.timeline = new TL.Timeline('myTimeline', timeline_data);
 </script>
     </body>

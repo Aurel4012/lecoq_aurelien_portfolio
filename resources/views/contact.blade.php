@@ -141,7 +141,9 @@
 					</div>
 				</section>
 
-			
+			<footer class="row text-center">
+                    <h5 class="col-lg-10 col-md-10 col-xs-12 col-sm-12 font-effect-shadow-multiple" id="welcomeTitle">© Aurélien Lecoq {{date("Y")}}</h5>   
+                </footer> 
 					
 				</div><!-- wrapper -->
 			</div><!-- /container -->

@@ -32,24 +32,46 @@
                     <h1 class="col-lg-10 col-md-10 col-xs-12 col-sm-12 font-effect-shadow-multiple" id="welcomeTitle">Bienvenue sur le Portfolio d'Aurélien Lecoq</span></h1>   
                 </header>
 
-				<section class="container">
-					<div class="row justify-content-center">
+    					<!--Section: Qui suis-je-->
+<section class="container my-4">
+                    <div class="row justify-content-center">
 
-    					<!--Section: Contact v.2-->
+                        <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12 mt-6 mb-6">
+                            <div class="card card-body">
+                                <h4 class="card-title">Qui suis je?</h4>
+                                @foreach ($woiam as $woiam)
+                                 @endforeach
+                                <p class="card-text"> {!!$woiam-> mypresentation !!}</p>
+                               <!--la syntaxe cidessus permet d'interpreter le html-->
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                        <!--Section: Etudes et Jobs-->
 <section class="container">
                     <div class="row justify-content-center">
 
                         <div class="col-lg-6 col-md-6 col-xs-12 col-sm-12 mt-6 mb-6">
                             <div class="card card-body">
-                                <h4 class="card-title">Qui suis je?</h4>
-                                <p class="card-text"> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
+                                <h4 class="card-title">Mes emplois: </h4>
+                                 @foreach ($jobs as $jobs)
+                                 <p>Etablissement: {{$jobs->etbt_job}}</p>
+                                <p>titre: {{$jobs->titre_job}}.</p>
+                                <p>Tâches effectuées: {!!$jobs->description_job!!}</p>
+                                <p class="card-text">Période: du {{date('d/m/Y', strtotime($jobs->begin_date_job))}} au {{date('d/m/Y', strtotime($jobs->end_date_job))}}</p>
+                                <hr>
+                               @endforeach
                             </div>
                         </div>
 
                         <div class="col-lg-6 col-md-6 col-xs-12 col-sm-12 mt-6 mb-6">
                             <div class="card card-body">
-                                <h4 class="card-title">Etudes:</h4>
-                                <p class="card-text"> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
+                                <h4 class="card-title">Etudes et formations:</h4>
+                                     @foreach ($studies as $studies)
+                                     <h5>Etablissement: {{$studies->org_stud}}</h5>
+                                  <p class="card-text">{{$studies->description_stud}}</p>
+                                  <p class="card-text">{{$studies->certif_stud}} {{date('d/m/Y', strtotime($studies->begin_date_stud))}} - {{date('d/m/Y', strtotime($studies->end_date_stud))}}</p>
+                                 @endforeach
                             </div>
                         </div>
 
@@ -57,35 +79,34 @@
 
                     </div>
                 </section>
-
                 <section class="container mt-5">
                     <div class="row justify-content-center">
-
+                        <!-- reseau sociaux -->
                         <div class="col-lg-4 col-md-4 col-xs-12 col-sm-12 mt-3 mb-3">
                             <div class="card card-body">
                                 <h4 class="card-title">Encore plus à propos de moi et suivez moi</h4>
-                                <p class="card-text"> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
-                                <div class="flex-row">
-                                    <a class="card-link">Card link</a>
-                                    <a class="card-link">Another link</a>
-                                </div>
+                                 @foreach ($sn as $sn)
+                                <p class="card-text "><a href="{{$sn->link_sn}}"><img src="uploads/sn/{{$sn->logo_sn}}" class="img-thumbnail" alt="Responsive image"></p></a>
+                                 @endforeach
                             </div>
                         </div>
 
-                        <div class="col-lg-7 col-md-7 col-xs-12 col-sm-12 mt-3 mb-3">
+                        <!-- techno -->
+                        <div class="col-lg-4 col-md-4 col-xs-12 col-sm-12 mt-3 mb-3">
                             <div class="card card-body">
                                 <h4 class="card-title">Technologies utilisées:</h4>
-                                <p class="card-text"> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
-                                <div class="flex-row">
-                                    <a class="card-link">Card link</a>
-                                    <a class="card-link">Another link</a>
-                                </div>
+                                @foreach ($techno as $techno)
+                               <span class="d-inline"> <img src="uploads/tech/{{$techno->logo_tech}}" class="img-thumbnail w-25" alt="Responsive image">
+                                @endforeach
+                            </span>
                             </div>
                         </div>
 
                     </div>
                 </section>
-                    
+                       <footer class="row text-center">
+                    <h5 class="col-lg-10 col-md-10 col-xs-12 col-sm-12 font-effect-shadow-multiple" id="welcomeTitle">© Aurélien Lecoq {{date("Y")}}</h5>   
+                </footer> 
                 </div><!-- wrapper -->
             </div><!-- /container -->
 			
@@ -112,6 +133,7 @@
     <script src="{{url('js/modernizr.custom.25376.js')}}"></script>
     <script src="{{url('js/classie.js')}}"></script>
 		<script src="{{url('js/menu.js')}}"></script>
+            
 </body>
 
 </html>

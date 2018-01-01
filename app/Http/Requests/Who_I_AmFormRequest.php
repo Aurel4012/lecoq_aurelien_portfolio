@@ -13,7 +13,7 @@ class Who_I_AmFormRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**

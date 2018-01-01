@@ -16,39 +16,40 @@
         </div>
     </header>
   </div>
-<section class="container">
+<div class="container">
                     <div class="row ">
                         <!--Section: tab admin-->
 <section class="col-md-8 col-md-offset-2">
     
         <!--experiences-->
         <div class="col-md-12 info-color z-depth-4 border border-dark rounded mx-5">
-            <div class="d-flex">
-        <div class="m-2" >
-        <a href="{{route('who_i_am')}}"><h3 class="animated fadeIn text-dark">www.test.com </h3></div></a>
-         <div class="ml-auto p-2" >
-            <a href="{{route('edit_experiences')}}"><button type="button" class="btn btn-warning warning-color my-2">Modifier</button> </a>
-            <a href="{{route('who_i_am')}}"><button type="button" class="btn btn-danger my-2">Supprimer</button> </a>
-            </div>
+          
+         <div class="row">
+        <div class="col-md-12">
+            @foreach($experiences as $experiences)
+            <hr>
+        <div class="col-md-8"><a href="{{env('APP_URL')}}/admin/edit_experiences/{{$experiences->id}}"><h3 class="animated fadeIn text-dark d-inline">{{$experiences->title_exp}} </h3></a>
+         </div>
         
-            </div> <!-- col md 12
- -->    
- <hr>
-
+            <a href="{{env('APP_URL')}}/admin/edit_experiences/{{$experiences->id}}"><button type="button" class="btn btn-warning warning-color my-1">Modifier</button> </a>
+             
+            <a href="{{env('APP_URL')}}/admin/experiences_del/{{$experiences->id}}"><button type="button" class="btn btn-danger my-1">Supprimer</button> </a>
+             <div>              
+ 
+             @endforeach 
+             <hr>
+       </div>
+        <a href="{{route('add_experiences')}}"><button type="button" class="btn btn-warning info-color my-2"> Ajouter</button></a>
+        
+        
    
-    <div class="row justify-content-center py-2">
-        <a href="{{route('edit_experiences')}}"><button type="button" class="btn btn-warning info-color my-2"> Ajouter</button></a>
-    </div>
+    
         </div>
-        
+   </section>     
 
-    </div>
 
-</section>
-<!--Section: tab admin-->
-
-                    </div>
-                </section>
+                    </div> <!-- fin de la row -->
+                </div> <!-- fin container -->
                 <!-- SCRIPTS -->
     <!-- JQuery -->
     <script type="text/javascript" src="{{url('js/jquery-3.2.1.min.js')}}"></script>

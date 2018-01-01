@@ -48,6 +48,8 @@
 <div class="info-color z-depth-4 border border-dark rounded p-4 mx-5">
     
              <div class="md-form col-auto ">
+              @isset($experiences)
+                @foreach($experiences as $experiences)
       <form class="form-horizontal bg-light py-4" method="POST" action="{{ route('experiences_update') }}" enctype="multipart/form-data">
         {{ csrf_field() }}
 <fieldset>
@@ -58,13 +60,64 @@
 <!-- Text input-->
 <div class="form-group">
   <div class="col-md-12">
-  <input id="textinput" name="title_exp" type="text" placeholder="Titres" class="form-control input-md">
+  <input id="textinput" name="title_exp" type="text" value="@isset($experiences){{$experiences->title_exp}}@endisset" class="form-control input-md">
   </div>
 </div>
 <!-- Textarea -->
 <div class="form-group">
   <div class="col-md-12">                     
-    <textarea class="form-control" id="textarea" placeholder="votre descriptif" name="description_exp" style="height: 300px"></textarea>
+    <textarea class="form-control" id="textarea" placeholder="@isset($experiences){{$experiences->description_exp}}@endisset" name="description_exp" style="height: 300px"></textarea>
+  </div>
+</div>
+<!-- Text input-->
+<div class="form-group ">
+    <div class="col-md-12">    <label>  Url du site</label>  </div>
+  <div class="col-md-12">
+  <input type="url" value="@isset($experiences){{$experiences->url_exp}}@endisset" name="url_exp" class="form-control input-md my-4" name="website">
+  </div>
+</div>
+
+
+<!-- Date -->
+<div class="form-group">
+  <div class="col-md-12">
+  <div class="row">
+  <div class="col-md-6"> 
+  <div class="col-md-12">    <label>Date de production</label>  </div>
+   <div class="row">
+   
+    <div class="col-md-8"> <input class="my-4" type="date" value="@isset($experiences){{$experiences->date_exp}}@endisset" name="date_exp"> </div>
+  </div>
+</div>
+ <div class="col-md-12 py-2"> 
+    <input type="file" name="file_exp" value="@isset($experiences){{$experiences->file_exp}}@endisset" class="form-control-file px-4" id="exampleFormControlFile1">
+</div>
+<button type="submit" class="btn btn-warning warning-color">Modifier</button> 
+</fieldset>
+
+
+</form>
+
+      @endforeach
+      @endisset
+      @empty($experiences)
+            <form class="form-horizontal bg-light py-4" method="POST" action="{{ route('experiences_update') }}" enctype="multipart/form-data">
+        {{ csrf_field() }}
+<fieldset>
+
+<!-- Form Name -->
+<legend>Mes expériences</legend>
+
+<!-- Text input-->
+<div class="form-group">
+  <div class="col-md-12">
+  <input id="textinput" name="title_exp" type="text" value="" placeholder="Votre titre" class="form-control input-md">
+  </div>
+</div>
+<!-- Textarea -->
+<div class="form-group">
+  <div class="col-md-12">                     
+    <textarea class="form-control" id="textarea" placeholder="Description" name="description_exp" style="height: 300px"></textarea>
   </div>
 </div>
 <!-- Text input-->
@@ -84,18 +137,19 @@
   <div class="col-md-12">    <label>Date de production</label>  </div>
    <div class="row">
    
-    <div class="col-md-8"> <input class="my-4" type="date" name="date_exp"> </div>
+    <div class="col-md-8"> <input class="my-4" type="date" value="" name="date_exp"> </div>
   </div>
 </div>
  <div class="col-md-12 py-2"> 
-    <input type="file" name="file_exp" class="form-control-file px-4" id="exampleFormControlFile1">
+    <input type="file" name="file_exp" value="" class="form-control-file px-4" id="exampleFormControlFile1">
 </div>
 <button type="submit" class="btn btn-warning warning-color">Modifier</button> 
 </fieldset>
 
 
 </form>
-      
+
+      @endempty
             </div>
             
 </div>
@@ -109,17 +163,34 @@
         <h6 class="animated fadeIn text-dark p-4">Mes expériences affichés</h6>
         <hr>
             </div>
-        
+        @isset($experiences)
+                
     <div class="row">  
     <div class="p-0" >
-        <h5 class="animated fadeIn text-dark p-4">www.test.fr</h5>
+        <h5 class="animated fadeIn text-dark p-4">{{$experiences->title_exp}}</h5>
     </div>
         <div class="p-0" >
-        <button type="button" class="btn-sm btn-danger danger-color my-4">Supprimer</button> 
+        <a href="{{env('APP_URL')}}/admin/experiences_del/{{$experiences->id}}"><button type="button" class="btn-sm btn-danger danger-color my-4">Supprimer</button></a>
         </div>      
          
     </div>
       <hr>
+               
+                @endisset
+ @empty($experiences)
+         @foreach($exp as $exp)        
+    <div class="row">  
+    <div class="p-0" >
+        <h5 class="animated fadeIn text-dark p-4">{{$exp->title_exp}}</h5>
+    </div>
+        <div class="p-0" >
+        <a href="{{env('APP_URL')}}/admin/experiences_del/{{$exp->id}}"><button type="button" class="btn-sm btn-danger danger-color my-4">Supprimer</button></a>
+        </div>      
+         
+    </div>
+      <hr>
+               @endforeach
+                @endempty
             </div>
     </div>
    

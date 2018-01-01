@@ -17,7 +17,6 @@
          <div class="ml-auto p-2" >
             
             <a href="{{route('admin')}}"><button type="button" class="btn btn-warning info-color my-2"><i class="fa fa-home" aria-hidden="true"></i> Home admin</button></a>
-             <a href="{{route('portfolio')}}"><button type="button" class="btn btn-warning info-color my-2"> vue public</button></a>
         </div>
     </header>
   </div>

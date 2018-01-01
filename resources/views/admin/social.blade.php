@@ -58,7 +58,7 @@
 </div>
 </div>
 
-<button type="submit" class="btn btn-warning warning-color my-2">Modifier</button> 
+<button type="submit" class="btn btn-warning warning-color my-2">Envoyer</button> 
 </fieldset>
 
 

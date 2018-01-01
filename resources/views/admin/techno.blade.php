@@ -51,7 +51,7 @@
 </div>
 </div>
 
-<button type="submit" class="btn btn-warning warning-color my-2">Modifier</button> 
+<button type="submit" class="btn btn-warning warning-color my-2">Envoyer</button> 
 </fieldset>
 
 
@@ -70,16 +70,18 @@
         <h6 class="animated fadeIn text-dark p-4">Mes Technos affichées</h6>
         <hr>
             </div>
-        
-    <div class="row">  
-    <div class="p-0" >
-        <h5 class="animated fadeIn text-dark p-4">Php</h5>
+      @foreach($techno as $techno)  
+          <div class="row">  
+    
+    <div class="p-0 col-6" >
+
+        <h5 class="animated fadeIn text-dark p-4">{{$techno->lab_tech}}</h5>
     </div>
-        <div class="p-0" >
-        <button type="button" class="btn-sm btn-danger danger-color my-4">Supprimer</button> 
-        </div>      
-         
+        <div class="p-0 col-6" >
+        <a href="{{env('APP_URL')}}/admin/techno_del/{{$techno->id}}"><button type="button" class="btn-sm btn-danger danger-color my-4">Supprimer</button></a> 
+        </div>        
     </div>
+    @endforeach
       <hr>
             </div>
     </div>

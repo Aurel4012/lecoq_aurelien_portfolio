@@ -30,8 +30,10 @@ class TechnoController extends Controller
          $techno = new Techno($request->except('csrf_token'));
         
          $techno->id_user = $request->user()->id;
-
+         // dd('test');
          $fname = Storage::disk('upload_tech')->put('', $request->logo_tech);
+        // $fname = Storage::putFileAs('jsstandard', new File('/uploads'), $request->logo_tech->getClientOriginalName());
+
         $techno->logo_tech = $request->logo_tech->getClientOriginalName();
         // sauvegarde bdd
         $techno->save();
@@ -70,7 +72,8 @@ class TechnoController extends Controller
     public function edit(Techno $techno)
     {
         $title = "Techno";
-        return view('admin/techno',compact('title'));
+        $techno = Techno::all();
+        return view('admin/techno',compact('title','techno'));
     }
 
     /**
@@ -85,9 +88,15 @@ class TechnoController extends Controller
          $techno = new Techno($request->except('csrf_token'));
         
          $techno->id_user = $request->user()->id;
-
+         // $file = $request->logo_tech->getClientOriginalName();
          $fname = Storage::disk('upload_tech')->put('', $request->logo_tech);
-        $techno->logo_tech = $request->logo_tech->getClientOriginalName();
+
+         $techno->logo_tech = $fname;
+         // $techno->logo_tech = $request->logo_tech->getClientOriginalName();
+
+         
+
+  
         // sauvegarde bdd
         $techno->save();
         $messageflash = "Données Techno sauvegardées!";
@@ -100,8 +109,10 @@ class TechnoController extends Controller
      * @param  \App\techno  $techno
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Techno $techno)
+    public function destroy(Techno $id)
     {
-        //
+       $id->delete();      
+       $messageflash = "Données technologies supprimées!";
+        return view('admin/home',compact('messageflash'));
     }
 }
